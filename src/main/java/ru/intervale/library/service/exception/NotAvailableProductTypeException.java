@@ -1,4 +1,4 @@
-package ru.intervale.library.controller;
+package ru.intervale.library.service.exception;
 
 public class NotAvailableProductTypeException extends Exception {
     public NotAvailableProductTypeException() {
