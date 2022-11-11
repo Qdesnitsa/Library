@@ -52,13 +52,13 @@ public class BookService {
         if (printProduct.getDatePublished() != null) {
             book.setDatePublished(printProduct.getDatePublished());
         }
-        if (printProduct.getType() != Type.BOOK) {
+        if (printProduct.getType() != Type.BOOK && printProduct.getType() != null) {
             throw new NotAvailableProductTypeException("Type of product should be BOOK");
         }
         if (printProduct.getNumberOfPages() != 0) {
             book.setNumberOfPages(printProduct.getNumberOfPages());
         }
-        book = bookRepo.save(printProduct);
+        bookRepo.save(book);
         return book;
     }
 

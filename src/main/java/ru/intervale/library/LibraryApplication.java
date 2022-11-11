@@ -22,11 +22,12 @@ public class LibraryApplication {
         return args -> {
           PrintProduct product1 = new PrintProduct(Type.BOOK,"ABC", LocalDate.parse("1998-02-02"),"Pushkin", 120);
           PrintProduct product2 = new PrintProduct(Type.BOOK,"ABCDEFG", LocalDate.parse("2010-11-07"),"Lermontov", 1187);
+          PrintProduct product3 = new PrintProduct(Type.MAGAZINE,"ABCDEFGHILK", LocalDate.parse("2010-11-07"),"Fashion LLC", 50);
 
             System.out.println(printProductRepository.save(product1));
             System.out.println(printProductRepository.save(product2));
+            System.out.println(printProductRepository.save(product3));
 
-            System.out.println(printProductRepository.findByAuthor("Lermontov"));
         };
     }
 }

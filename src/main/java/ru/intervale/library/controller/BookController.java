@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.intervale.library.model.PrintProduct;
-import ru.intervale.library.model.Type;
 import ru.intervale.library.service.BookService;
 import ru.intervale.library.service.exception.NotAvailableProductTypeException;
 
@@ -18,7 +17,7 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<PrintProduct>> getAllBooks() {
         List<PrintProduct> books = bookService.getAllBooks();
         return new ResponseEntity<>(books, HttpStatus.OK);
@@ -30,8 +29,8 @@ public class BookController {
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
-    @GetMapping("/{author}")
-    public ResponseEntity<List<PrintProduct>> getBooksByAuthor(@PathVariable("author") String author) {
+    @GetMapping
+    public ResponseEntity<List<PrintProduct>> getBooksByAuthor(@RequestParam(value = "author") String author) {
         List<PrintProduct> books = bookService.findBookByAuthor(author);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
