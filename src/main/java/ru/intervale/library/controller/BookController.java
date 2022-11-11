@@ -29,9 +29,21 @@ public class BookController {
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<PrintProduct>> getBooksByAuthor(@RequestParam(value = "author") String author) {
+    @GetMapping("/author/{author}")
+    public ResponseEntity<List<PrintProduct>> getBooksByAuthor(@PathVariable("author") String author) {
         List<PrintProduct> books = bookService.findBookByAuthor(author);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("/date/{date}")
+    public ResponseEntity<List<PrintProduct>> getBooksByDate(@PathVariable("date") String date) {
+        List<PrintProduct> books = bookService.findBookByDate(date);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<List<PrintProduct>> getBooksByName(@PathVariable("name") String name) {
+        List<PrintProduct> books = bookService.findBookByName(name);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 

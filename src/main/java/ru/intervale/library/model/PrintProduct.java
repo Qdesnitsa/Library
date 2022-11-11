@@ -14,5 +14,4 @@ public class PrintProduct extends AbstractEntity {
     private String name;
     private LocalDate datePublished;
     private String author;
-    private int numberOfPages;
 }

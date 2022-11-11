@@ -4,36 +4,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.intervale.library.dao.PrintProductRepository;
 import ru.intervale.library.model.PrintProduct;
-import ru.intervale.library.model.Type;
+import ru.intervale.library.service.PrintProductService;
 import ru.intervale.library.service.exception.NotAvailableProductTypeException;
+import ru.intervale.library.util.AppConstant;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
 public class PrintProductController {
     @Autowired
-    PrintProductRepository printRepo;
+    PrintProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<PrintProduct>> getPrintProducts() {
-        List<PrintProduct> printProducts = (List<PrintProduct>) printRepo.findAll();
+    public ResponseEntity<List<PrintProduct>> getAllPrintProducts(
+            @RequestParam(value = "type", defaultValue = AppConstant.DEFAULT_TYPE, required = false) String type,
+            @RequestParam(value = "name", defaultValue = AppConstant.DEFAULT_NAME, required = false) String name,
+            @RequestParam(value = "author", defaultValue = AppConstant.DEFAULT_AUTHOR, required = false) String author,
+            @RequestParam(value = "date", defaultValue = AppConstant.DEFAULT_DATE, required = false) String date
+    ) {
+        List<PrintProduct> printProducts = productService.getAllPrintProducts(type.toUpperCase(), name, author, date);
         return new ResponseEntity<>(printProducts, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PrintProduct> getPrintProductById(@PathVariable("id") Long id) {
-        PrintProduct printProduct = printRepo.findById(id).get();
+        PrintProduct printProduct = productService.getPrintProductById(id);
         return new ResponseEntity<>(printProduct, HttpStatus.OK);
     }
 
     @PostMapping(consumes = "application/json")
     public ResponseEntity<PrintProduct> createPrintProduct(@RequestBody @Valid PrintProduct printProduct) {
-        PrintProduct targetProduct = printRepo.save(printProduct);
+        PrintProduct targetProduct = productService.createPrintProduct(printProduct);
         return new ResponseEntity<>(targetProduct, HttpStatus.CREATED);
     }
 
@@ -41,24 +45,13 @@ public class PrintProductController {
     public ResponseEntity<PrintProduct> partialUpdatePrintProduct(
             @PathVariable("id") Long id,
             @RequestBody @Valid PrintProduct printProduct) throws NotAvailableProductTypeException {
-        PrintProduct targetProduct = printRepo.findById(id).get();
-
-        if (printProduct.getType() != null) {
-            boolean isAvailableType = Arrays.stream(Type.values())
-                    .anyMatch(availType -> availType.equals(printProduct.getType()));
-            if (isAvailableType) {
-                targetProduct.setType(printProduct.getType());
-            }
-        } else {
-            throw new NotAvailableProductTypeException("Product type is incorrect");
-        }
-
+        PrintProduct targetProduct = productService.partialUpdatePrintProduct(id, printProduct);
         return new ResponseEntity<>(targetProduct, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<PrintProduct> delete(@PathVariable Long id) {
-        printRepo.deleteById(id);
+        productService.deletePrintProductById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

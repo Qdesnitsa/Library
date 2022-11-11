@@ -1,7 +1,6 @@
 package ru.intervale.library.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.intervale.library.dao.BookRepository;
 import ru.intervale.library.model.PrintProduct;
@@ -30,6 +29,16 @@ public class BookService {
         return books;
     }
 
+    public List<PrintProduct> findBookByDate(String date) {
+        List<PrintProduct> books = bookRepo.findBookByDate(date);
+        return books;
+    }
+
+    public List<PrintProduct> findBookByName(String name) {
+        List<PrintProduct> books = bookRepo.findBookByName(name);
+        return books;
+    }
+
     public PrintProduct createBook(PrintProduct printProduct) {
         PrintProduct book = bookRepo.save(printProduct);
         return book;
@@ -54,9 +63,6 @@ public class BookService {
         }
         if (printProduct.getType() != Type.BOOK && printProduct.getType() != null) {
             throw new NotAvailableProductTypeException("Type of product should be BOOK");
-        }
-        if (printProduct.getNumberOfPages() != 0) {
-            book.setNumberOfPages(printProduct.getNumberOfPages());
         }
         bookRepo.save(book);
         return book;
