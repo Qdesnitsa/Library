@@ -41,7 +41,9 @@ public class MagazineService {
     }
 
     public PrintProduct createMagazine(PrintProduct printProduct) throws ObligatoryMagazineFieldException {
-        if (printProduct.getGenre() == null || printProduct.getName() == null) {
+        if (!printProduct.getType().equals(Type.MAGAZINE) ||
+                printProduct.getName() == null ||
+                printProduct.getGenre() == null) {
             throw new ObligatoryMagazineFieldException();
         }
         PrintProduct magazine = magazineRepo.save(printProduct);

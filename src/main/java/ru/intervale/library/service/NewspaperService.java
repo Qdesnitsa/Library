@@ -41,7 +41,9 @@ public class NewspaperService {
     }
 
     public PrintProduct createNewspaper(PrintProduct printProduct) throws ObligatoryNewspaperFieldException {
-        if (printProduct.getGenre() == null || printProduct.getName() == null) {
+        if (!printProduct.getType().equals(Type.NEWSPAPER) ||
+                printProduct.getName() == null ||
+                printProduct.getGenre() == null) {
             throw new ObligatoryNewspaperFieldException();
         }
         PrintProduct newspaper = newspaperRepo.save(printProduct);
@@ -65,7 +67,7 @@ public class NewspaperService {
         if (printProduct.getDatePublished() != null) {
             newspaper.setDatePublished(printProduct.getDatePublished());
         }
-        if (printProduct.getType() != Type.MAGAZINE && printProduct.getType() != null) {
+        if (printProduct.getType() != Type.NEWSPAPER && printProduct.getType() != null) {
             throw new NotAvailableProductTypeException();
         }
         newspaperRepo.save(newspaper);
