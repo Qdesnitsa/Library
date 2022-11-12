@@ -25,22 +25,22 @@ public class BookService {
         return book;
     }
 
-    public List<PrintProduct> findBookByAuthor(String author) {
+    public List<PrintProduct> findBooksByAuthor(String author) {
         List<PrintProduct> books = bookRepo.findBookByAuthor(author);
         return books;
     }
 
-    public List<PrintProduct> findBookByDate(String date) {
+    public List<PrintProduct> findBooksByDate(String date) {
         List<PrintProduct> books = bookRepo.findBookByDate(date);
         return books;
     }
 
-    public List<PrintProduct> findBookByName(String name) {
+    public List<PrintProduct> findBooksByName(String name) {
         List<PrintProduct> books = bookRepo.findBookByName(name);
         return books;
     }
 
-    public List<PrintProduct> findBookByGenre(String genre) {
+    public List<PrintProduct> findBooksByGenre(String genre) {
         List<PrintProduct> books = bookRepo.findBookByGenre(genre.toUpperCase());
         return books;
     }

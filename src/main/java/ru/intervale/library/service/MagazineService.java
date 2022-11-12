@@ -25,17 +25,17 @@ public class MagazineService {
         return magazine;
     }
 
-    public List<PrintProduct> findMagazineByDate(String date) {
+    public List<PrintProduct> findMagazinesByDate(String date) {
         List<PrintProduct> magazines = magazineRepo.findMagazineByDate(date);
         return magazines;
     }
 
-    public List<PrintProduct> findMagazineByName(String name) {
+    public List<PrintProduct> findMagazinesByName(String name) {
         List<PrintProduct> magazines = magazineRepo.findMagazineByName(name);
         return magazines;
     }
 
-    public List<PrintProduct> findMagazineByGenre(String genre) {
+    public List<PrintProduct> findMagazinesByGenre(String genre) {
         List<PrintProduct> magazines = magazineRepo.findMagazineByGenre(genre.toUpperCase());
         return magazines;
     }

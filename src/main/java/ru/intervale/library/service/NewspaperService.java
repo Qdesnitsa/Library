@@ -25,17 +25,17 @@ public class NewspaperService {
         return newspaper;
     }
 
-    public List<PrintProduct> findNewspaperByDate(String date) {
+    public List<PrintProduct> findNewspapersByDate(String date) {
         List<PrintProduct> newspapers = newspaperRepo.findNewspaperByDate(date);
         return newspapers;
     }
 
-    public List<PrintProduct> findNewspaperByName(String name) {
+    public List<PrintProduct> findNewspapersByName(String name) {
         List<PrintProduct> newspapers = newspaperRepo.findNewspaperByName(name);
         return newspapers;
     }
 
-    public List<PrintProduct> findNewspaperByGenre(String genre) {
+    public List<PrintProduct> findNewspapersByGenre(String genre) {
         List<PrintProduct> newspapers = newspaperRepo.findNewspaperByGenre(genre.toUpperCase());
         return newspapers;
     }

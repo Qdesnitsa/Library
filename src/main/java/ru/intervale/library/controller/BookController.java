@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.intervale.library.model.PrintProduct;
 import ru.intervale.library.service.BookService;
-import ru.intervale.library.service.exception.NoEntityWithSuchIdException;
 import ru.intervale.library.service.exception.NotAvailableProductTypeException;
 import ru.intervale.library.service.exception.ObligatoryBookFieldException;
 
@@ -26,32 +25,32 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PrintProduct> getBookById(@PathVariable("id") Long id) throws NoEntityWithSuchIdException {
+    public ResponseEntity<PrintProduct> getBookById(@PathVariable("id") Long id) {
         PrintProduct book = bookService.findBookById(id);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
     @GetMapping("/author/{author}")
     public ResponseEntity<List<PrintProduct>> getBooksByAuthor(@PathVariable("author") String author) {
-        List<PrintProduct> books = bookService.findBookByAuthor(author);
+        List<PrintProduct> books = bookService.findBooksByAuthor(author);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @GetMapping("/date/{date}")
     public ResponseEntity<List<PrintProduct>> getBooksByDate(@PathVariable("date") String date) {
-        List<PrintProduct> books = bookService.findBookByDate(date);
+        List<PrintProduct> books = bookService.findBooksByDate(date);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @GetMapping("/name/{name}")
     public ResponseEntity<List<PrintProduct>> getBooksByName(@PathVariable("name") String name) {
-        List<PrintProduct> books = bookService.findBookByName(name);
+        List<PrintProduct> books = bookService.findBooksByName(name);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @GetMapping("/genre/{genre}")
     public ResponseEntity<List<PrintProduct>> getBooksByGenre(@PathVariable("genre") String genre) {
-        List<PrintProduct> books = bookService.findBookByGenre(genre);
+        List<PrintProduct> books = bookService.findBooksByGenre(genre);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
