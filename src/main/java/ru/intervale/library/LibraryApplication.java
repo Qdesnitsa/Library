@@ -17,17 +17,17 @@ public class LibraryApplication {
         SpringApplication.run(LibraryApplication.class, args);
     }
 
-    @Bean
-    ApplicationRunner applicationRunner(PrintProductRepository printProductRepository) {
-        return args -> {
-          PrintProduct product1 = new PrintProduct(Type.BOOK,"ABC", LocalDate.parse("1998-02-02"),"Pushkin");
-          PrintProduct product2 = new PrintProduct(Type.BOOK,"ABCDEFG", LocalDate.parse("2010-11-07"),"Lermontov");
-          PrintProduct product3 = new PrintProduct(Type.MAGAZINE,"ABCDEFGHILK", LocalDate.parse("2010-11-07"),"Fashion LLC");
-
-            System.out.println(printProductRepository.save(product1));
-            System.out.println(printProductRepository.save(product2));
-            System.out.println(printProductRepository.save(product3));
-
-        };
-    }
+//    @Bean
+//    ApplicationRunner applicationRunner(PrintProductRepository printProductRepository) {
+//        return args -> {
+//          PrintProduct product1 = new PrintProduct(Type.BOOK,"ABC", LocalDate.parse("1998-02-02"),"Pushkin");
+//          PrintProduct product2 = new PrintProduct(Type.BOOK,"ABCDEFG", LocalDate.parse("2010-11-07"),"Lermontov");
+//          PrintProduct product3 = new PrintProduct(Type.MAGAZINE,"ABCDEFGHILK", LocalDate.parse("2010-11-07"),"Fashion LLC");
+//
+//            System.out.println(printProductRepository.save(product1));
+//            System.out.println(printProductRepository.save(product2));
+//            System.out.println(printProductRepository.save(product3));
+//
+//        };
+//    }
 }

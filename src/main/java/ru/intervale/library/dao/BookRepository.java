@@ -20,4 +20,7 @@ public interface BookRepository extends CrudRepository<PrintProduct, Long> {
 
     @Query("SELECT * FROM print_products WHERE type = 'BOOK' AND name LIKE CONCAT('%', :name, '%')")
     List<PrintProduct> findBookByName(@Param("name")String name);
+
+    @Query("SELECT * FROM print_products WHERE type = 'BOOK' AND genre LIKE CONCAT('%', :genre, '%')")
+    List<PrintProduct> findBookByGenre(@Param("genre")String genre);
 }

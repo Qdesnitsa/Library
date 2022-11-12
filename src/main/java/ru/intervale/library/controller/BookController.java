@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.intervale.library.model.PrintProduct;
 import ru.intervale.library.service.BookService;
+import ru.intervale.library.service.exception.NoEntityWithSuchIdException;
 import ru.intervale.library.service.exception.NotAvailableProductTypeException;
+import ru.intervale.library.service.exception.ObligatoryFieldException;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,7 +26,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PrintProduct> getBookById(@PathVariable("id") Long id) {
+    public ResponseEntity<PrintProduct> getBookById(@PathVariable("id") Long id) throws NoEntityWithSuchIdException {
         PrintProduct book = bookService.findBookById(id);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
@@ -47,8 +49,14 @@ public class BookController {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping("/genre/{genre}")
+    public ResponseEntity<List<PrintProduct>> getBooksByGenre(@PathVariable("genre") String genre) {
+        List<PrintProduct> books = bookService.findBookByGenre(genre);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
     @PostMapping(consumes = "application/json")
-    public ResponseEntity<PrintProduct> createBook(@RequestBody @Valid PrintProduct printProduct) {
+    public ResponseEntity<PrintProduct> createBook(@RequestBody @Valid PrintProduct printProduct) throws ObligatoryFieldException {
         PrintProduct book = bookService.createBook(printProduct);
         return new ResponseEntity<>(book, HttpStatus.CREATED);
     }

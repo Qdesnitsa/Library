@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import ru.intervale.library.dao.BookRepository;
 import ru.intervale.library.model.PrintProduct;
 import ru.intervale.library.model.Type;
+import ru.intervale.library.service.exception.NoEntityWithSuchIdException;
 import ru.intervale.library.service.exception.NotAvailableProductTypeException;
+import ru.intervale.library.service.exception.ObligatoryFieldException;
 
 import java.util.List;
 
@@ -19,8 +21,13 @@ public class BookService {
         return books;
     }
 
-    public PrintProduct findBookById(Long id) {
-        PrintProduct book = bookRepo.findById(id).get();
+    public PrintProduct findBookById(Long id) throws NoEntityWithSuchIdException {
+        PrintProduct book = null;
+        try {
+            book = bookRepo.findById(id).get();
+        } catch (IllegalArgumentException e) {
+            throw new NoEntityWithSuchIdException("There is no Print product with this ID in the database");
+        }
         return book;
     }
 
@@ -39,7 +46,15 @@ public class BookService {
         return books;
     }
 
-    public PrintProduct createBook(PrintProduct printProduct) {
+    public List<PrintProduct> findBookByGenre(String genre) {
+        List<PrintProduct> books = bookRepo.findBookByGenre(genre.toUpperCase());
+        return books;
+    }
+
+    public PrintProduct createBook(PrintProduct printProduct) throws ObligatoryFieldException {
+        if (printProduct.getAuthor() == null || printProduct.getGenre() == null) {
+            throw new ObligatoryFieldException("Author & Genre should not be null");
+        }
         PrintProduct book = bookRepo.save(printProduct);
         return book;
     }

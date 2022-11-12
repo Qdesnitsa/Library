@@ -1,0 +1,48 @@
+--INSERT BOOKS
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'A Tale of Two Cities', '1859-01-01', 'Charles Dickens', 'HISTORICAL_FICTION');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'The Little Prince', '1943-01-01', 'Antoine de Saint-Exupery', 'NOVELLA');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'Harry Potter and the Philosopher''s Stone', '1997-01-01', 'J. K. Rowling', 'FANTASY');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'And Then There Were None', '1939-01-01', 'Agatha Christie', 'MYSTERY');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'The Hobbit', '1937-01-01', 'J. R. R. Tolkien', 'FANTASY');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'The Lion, the Witch and the Wardrobe', '1950-01-01', 'C. S. Lewis', 'FANTASY');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'She: A History of Adventure', '1887-01-01', 'H. Rider Haggard', 'ADVENTURE');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'Vardi Wala Gunda', '1992-01-01', 'Ved Prakash Sharma', 'DETECTIVE');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'The Da Vinci Code', '2003-01-01', 'Dan Brown', 'MYSTERY');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('BOOK', 'Harry Potter and the Chamber of Secrets', '1998-01-01', 'J. K. Rowling', 'FANTASY');
+--INSERT MAGAZINES
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Food Network Magazine', '2022-01-10', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Food Network Magazine', '2022-02-10', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Food Network Magazine', '2022-03-10', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Food Network Magazine', '2022-04-10', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Food Network Magazine', '2022-05-10', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Family Handyman', '2022-01-15', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Family Handyman', '2022-02-15', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Family Handyman', '2022-03-15', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Family Handyman', '2022-04-15', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'Family Handyman', '2022-05-15', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'National Geographic Little Kids', '2022-01-25', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'National Geographic Little Kids', '2022-02-25', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'National Geographic Little Kids', '2022-03-25', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'National Geographic Little Kids', '2022-04-25', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('MAGAZINE', 'National Geographic Little Kids', '2022-05-25', '', '');
+--INSERT NEWSPAPERS
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Yomiuri Shimbun', '2022-01-03', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Yomiuri Shimbun', '2022-01-10', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Yomiuri Shimbun', '2022-01-17', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Yomiuri Shimbun', '2022-01-24', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Yomiuri Shimbun', '2022-01-31', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Jagran', '2022-01-04', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Jagran', '2022-01-11', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Jagran', '2022-01-18', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Jagran', '2022-01-25', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Jagran', '2022-02-01', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Bhaskar', '2022-01-05', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Bhaskar', '2022-01-12', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Bhaskar', '2022-01-19', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Bhaskar', '2022-01-26', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Dainik Bhaskar', '2022-02-02', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Reference News', '2022-01-06', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Reference News', '2022-01-13', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Reference News', '2022-01-20', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Reference News', '2022-01-27', '', '');
+INSERT INTO PRINT_PRODUCTS (type, name, date_published, author, genre) VALUES ('NEWSPAPER', 'Reference News', '2022-02-03', '', '');
