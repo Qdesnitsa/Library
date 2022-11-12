@@ -1,4 +1,4 @@
-package ru.intervale.library.aop;
+package ru.intervale.library.exception_handling;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

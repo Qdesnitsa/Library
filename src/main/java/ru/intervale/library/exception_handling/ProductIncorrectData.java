@@ -1,4 +1,4 @@
-package ru.intervale.library.aop;
+package ru.intervale.library.exception_handling;
 
 public class ProductIncorrectData {
     private String info;

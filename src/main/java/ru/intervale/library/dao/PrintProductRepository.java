@@ -20,7 +20,4 @@ public interface PrintProductRepository extends CrudRepository<PrintProduct, Lon
                                @Param("author") String author,
                                @Param("datePublished") String datePublished,
                                @Param("genre") String genre);
-
-    @Query("SELECT * FROM print_products WHERE author = :author ORDER BY name")
-    List<PrintProduct> findByAuthor(@Param("author") String author);
 }

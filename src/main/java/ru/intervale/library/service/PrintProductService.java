@@ -27,7 +27,7 @@ public class PrintProductService {
 
     public PrintProduct createPrintProduct(PrintProduct printProduct) {
         PrintProduct targetProduct = productRepo.save(printProduct);
-        return printProduct;
+        return targetProduct;
     }
 
     public PrintProduct partialUpdatePrintProduct(Long id, PrintProduct printProduct) throws NotAvailableProductTypeException {

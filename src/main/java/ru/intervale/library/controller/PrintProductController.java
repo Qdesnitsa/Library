@@ -52,7 +52,7 @@ public class PrintProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<PrintProduct> delete(@PathVariable Long id) {
+    public ResponseEntity<PrintProduct> deletePrintProduct(@PathVariable Long id) {
         productService.deletePrintProductById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
