@@ -23,15 +23,17 @@ public class PrintProductController {
             @RequestParam(value = "type", defaultValue = AppConstant.DEFAULT_TYPE, required = false) String type,
             @RequestParam(value = "name", defaultValue = AppConstant.DEFAULT_NAME, required = false) String name,
             @RequestParam(value = "author", defaultValue = AppConstant.DEFAULT_AUTHOR, required = false) String author,
-            @RequestParam(value = "date", defaultValue = AppConstant.DEFAULT_DATE, required = false) String date
+            @RequestParam(value = "date", defaultValue = AppConstant.DEFAULT_DATE, required = false) String date,
+            @RequestParam(value = "genre", defaultValue = AppConstant.DEFAULT_GENRE, required = false) String genre
     ) {
-        List<PrintProduct> printProducts = productService.getAllPrintProducts(type.toUpperCase(), name, author, date);
+        List<PrintProduct> printProducts = productService.findAllPrintProducts(type.toUpperCase(),
+                name, author, date, genre.toUpperCase());
         return new ResponseEntity<>(printProducts, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PrintProduct> getPrintProductById(@PathVariable("id") Long id) {
-        PrintProduct printProduct = productService.getPrintProductById(id);
+        PrintProduct printProduct = productService.findPrintProductById(id);
         return new ResponseEntity<>(printProduct, HttpStatus.OK);
     }
 

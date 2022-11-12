@@ -13,9 +13,7 @@ import java.time.LocalDate;
 public class PrintProduct extends AbstractEntity {
     @NotNull
     private Type type;
-    @NotNull
     private String name;
-    @NotNull
     private LocalDate datePublished;
     private String author;
     private Genre genre;

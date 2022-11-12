@@ -15,12 +15,12 @@ public class PrintProductService {
     @Autowired
     PrintProductRepository productRepo;
 
-    public List<PrintProduct> getAllPrintProducts(String type, String name, String author, String date) {
-        List<PrintProduct> printProducts = productRepo.findAll(type, name, author, date);
+    public List<PrintProduct> findAllPrintProducts(String type, String name, String author, String date, String genre) {
+        List<PrintProduct> printProducts = productRepo.findAll(type, name, author, date, genre);
         return printProducts;
     }
 
-    public PrintProduct getPrintProductById(Long id) {
+    public PrintProduct findPrintProductById(Long id) {
         PrintProduct printProduct = productRepo.findById(id).get();
         return printProduct;
     }
@@ -40,7 +40,7 @@ public class PrintProductService {
                 targetProduct.setType(printProduct.getType());
             }
         } else {
-            throw new NotAvailableProductTypeException("Product type is incorrect");
+            throw new NotAvailableProductTypeException();
         }
 
         productRepo.save(targetProduct);

@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS PRINT_PRODUCTS (
     id BIGINT NOT NULL AUTO_INCREMENT,
     type VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
-    date_published DATE NOT NULL,
+    date_published DATE,
     author VARCHAR(255),
     genre VARCHAR(255)
 );

@@ -8,7 +8,7 @@ import ru.intervale.library.model.PrintProduct;
 import ru.intervale.library.service.BookService;
 import ru.intervale.library.service.exception.NoEntityWithSuchIdException;
 import ru.intervale.library.service.exception.NotAvailableProductTypeException;
-import ru.intervale.library.service.exception.ObligatoryFieldException;
+import ru.intervale.library.service.exception.ObligatoryBookFieldException;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -21,7 +21,7 @@ public class BookController {
 
     @GetMapping("/all")
     public ResponseEntity<List<PrintProduct>> getAllBooks() {
-        List<PrintProduct> books = bookService.getAllBooks();
+        List<PrintProduct> books = bookService.findAllBooks();
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
@@ -56,7 +56,7 @@ public class BookController {
     }
 
     @PostMapping(consumes = "application/json")
-    public ResponseEntity<PrintProduct> createBook(@RequestBody @Valid PrintProduct printProduct) throws ObligatoryFieldException {
+    public ResponseEntity<PrintProduct> createBook(@RequestBody @Valid PrintProduct printProduct) throws ObligatoryBookFieldException {
         PrintProduct book = bookService.createBook(printProduct);
         return new ResponseEntity<>(book, HttpStatus.CREATED);
     }
